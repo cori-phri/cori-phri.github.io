@@ -56,6 +56,14 @@
         </div>
     </section>
 
+    <section class="section" style="padding: 0">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <img src="images/main-fig.png" alt="main figure" style="width:100%; height:auto;">
+            </div>
+        </div>
+    </section>
+
     <section class="section">
         <div class="container is-max-desktop">
             <!-- Abstract. -->
@@ -65,8 +73,6 @@
                     <div class="content has-text-justified">
                         <p style="font-size: 125%">
                             Clear communication of robot intent fosters transparency and interpretability in physical human-robot interaction (pHRI), particularly during assistive tasks involving direct human-robot contact. We introduce CoRI, a pipeline that automatically generates natural language communication of a robot's upcoming actions directly from its motion plan and visual perception. Our pipeline first processes the robot's image view to identify human poses and key environmental features. It then encodes the planned 3D spatial trajectory (including velocity and force) onto this view, visually grounding the path and its dynamics. CoRI queries a vision-language model with this visual representation to interpret the planned action within the visual context before generating concise, user-directed statements, without relying on task-specific information. Results from a user study involving robot-assisted feeding, bathing, and shaving tasks across two different robots indicate that CoRI leads to statistically significant difference in communication clarity compared to a baseline communication strategy. Specifically, CoRI effectively conveys not only the robot's high-level intentions but also crucial details about its motion any necessary user cooperation.
-<br>
-<br>
                         </p>
                     </div>
                 </div>
@@ -74,21 +80,73 @@
         </div>
     </section>
 
-    <section class="section" style="padding: 0">
-      <div class="container is-max-desktop">
-        <div class="rows">
-          <div class="rows is-centered ">
-            <div class="row is-full-width">
-              <h2 class="title is-3">Overview Video</h2>
-                <div class="columns is-centered has-text-centered"> 
-                  <video poster="" id="" autoplay controls loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
-                      <source src="videos/overview.mp4" type="video/mp4">
-                  </video>
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3">Overview Video</h2>
+                        <div class="columns is-centered has-text-centered"> 
+                            <video poster="" id="" controls width="100%" playbackRate=2.0 style="border-radius: 5px;">
+                                <source src="videos/overview.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">CoRI Pipeline Details</span></h2>
+                        <img src="images/system-fig.png" class="interpolation-image" alt=""
+                        style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;" />
+                        <br>
+                        <span style="font-size: 125%"><strong>Overview: </strong> Our CoRI pipeline takes as input an image observation of the environment and person, along with a planned 3D trajectory of any robot. CoRI first performs interaction-aware trajectory encoding to extract body landmarks, segment the trajectory, and visually encode the planned motion into visual context. Finally, it queries a VLM and a reasoning LLM respectively to interpret the visual information and generate user-oriented verbal communication. CoRI is designed to be <strong>task-agnostic</strong>, hence not requiring any task-specific information, and allows any robot to communicate to a non-expert user in the following three aspects: 
+                            <ul class="features">
+                            <li>The overall <strong>intention</strong> of the robot. This is the task-level goal that the robot aims to achieve.</li>
+                            <li>All aspects of the <strong>motion</strong> of the robot. This includes details regarding the planned trajectory itself&mdash;starting and ending positions, shape of the trajectory, as well as velocity and force profiles. Furthermore, these descriptions are intuitive&mdash;without any numerical values, but with references to the robot's surroundings and with comparative language.</li>
+                            <li>If needed, <strong>user cooperation</strong>. We recognize that many assistive tasks require certain behaviors from the user in order for the overall interaction to be successful (e.g. user taking a bite during feeding). Hence, our pipeline also conveys any desired human behavior.</li>
+                            </ul> 
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Application in pHRI Tasks</span></h2>
+                        <div class="column has-text-centered">
+                            <h3 class="title is-4"><span class="dvima">Bathing</span></h3>
+                            <video poster="" id="" controls width="70%" playbackRate=2.0 style="border-radius: 5px;">
+                                <source src="videos/bathing-1.mp4" type="video/mp4">
+                            </video>
+                            <br>
+                            <br>
+                            <h3 class="title is-4"><span class="dvima">Shaving</span></h3>
+                            <video poster="" id="" controls width="70%" playbackRate=2.0 style="border-radius: 5px;">
+                                <source src="videos/shaving-2.mp4" type="video/mp4">
+                            </video>
+                            <br>
+                            <br>
+                            <h3 class="title is-4"><span class="dvima">Feeding</span></h3>
+                            <video poster="" id="" controls width="70%" playbackRate=2.0 style="border-radius: 5px;">
+                                <source src="videos/feeding-1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 </body>
