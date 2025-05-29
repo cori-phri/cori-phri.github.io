@@ -25,6 +25,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
+    <style>
+        .features {
+            list-style-type: disc;  /* solid round bullets */
+            margin-left: 1.5em;     /* indent to taste */
+        }
+
+        .lead-video-player-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #363636;
+            position: relative;
+            margin: 0 auto 1rem;
+            display: block;
+            width: 40vw;
+            aspect-ratio: 16 / 9;
+        }
+      
+        .lead-video-player-wrapper video {
+            display: block;
+            width: 100%;  
+            height: auto; 
+        }
+      
+        .video-thumbnail-strip {
+            display: flex;            
+            flex-direction: column; 
+            flex-wrap: nowrap;        
+            gap: 10px;               
+            justify-content: flex-start; 
+            align-items: center;      
+        }
+      
+        .video-thumbnail-strip .thumbnail-video-wrapper {
+            position: relative;
+            width: 12vw;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: border-color 0.2s ease-in-out,
+                        transform    0.2s ease-in-out;
+            background-color: #2b2b2b;
+        }
+      
+        .video-thumbnail-strip .thumbnail-video-wrapper video.thumbnail-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            display: block;
+        }
+      
+        .video-thumbnail-strip .thumbnail-video-wrapper:hover {
+            border-color: #FFD4D4;
+            transform: scale(1.05);
+        }
+      
+        .video-thumbnail-strip .thumbnail-video-wrapper.active {
+            border-color: #FF8282;
+            transform: scale(1.05);
+        }
+      </style>
 </head>
 
 <body>
@@ -125,23 +188,63 @@
                 <div class="rows is-centered">
                     <div class="row is-full-width">
                         <h2 class="title is-3"><span class="dvima">Application in pHRI Tasks</span></h2>
-                        <div class="column has-text-centered">
-                            <h3 class="title is-4"><span class="dvima">Bathing</span></h3>
-                            <video poster="" id="" controls width="70%" playbackRate=2.0 style="border-radius: 5px;">
-                                <source src="videos/bathing-1.mp4" type="video/mp4">
-                            </video>
-                            <br>
-                            <br>
-                            <h3 class="title is-4"><span class="dvima">Shaving</span></h3>
-                            <video poster="" id="" controls width="70%" playbackRate=2.0 style="border-radius: 5px;">
-                                <source src="videos/shaving-2.mp4" type="video/mp4">
-                            </video>
-                            <br>
-                            <br>
-                            <h3 class="title is-4"><span class="dvima">Feeding</span></h3>
-                            <video poster="" id="" controls width="70%" playbackRate=2.0 style="border-radius: 5px;">
-                                <source src="videos/feeding-1.mp4" type="video/mp4">
-                            </video>
+                        <h3 class="title is-4"><span class="dvima">Bathing</span></h3>
+                        <div class="columns is-vcentered">
+                            <div class="column is-narrow">
+                                <div class="video-thumbnail-strip" id="bathing-thumbs">
+                                    <div class="thumbnail-video-wrapper" data-video-src="videos/bathing-1.mp4">
+                                        <video class="thumbnail-video" src="videos/bathing-1.mp4" muted preload="metadata" playsinline></video>
+                                    </div>
+                                    <div class="thumbnail-video-wrapper" data-video-src="videos/bathing-2.mp4">
+                                        <video class="thumbnail-video" src="videos/bathing-2.mp4" muted preload="metadata" playsinline></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="lead-video-player-wrapper">
+                                    <video id="bathing-lead-video" src="videos/bathing-1.mp4" controls preload="auto"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="title is-4"><span class="dvima">Shaving</span></h3>
+                        <div class="columns is-vcentered">
+                            <div class="column is-narrow">
+                                <div class="video-thumbnail-strip" id="shaving-thumbs">
+                                    <div class="thumbnail-video-wrapper" data-video-src="videos/shaving-2.mp4">
+                                        <video class="thumbnail-video" src="videos/shaving-2.mp4" muted preload="metadata" playsinline></video>
+                                    </div>
+                                    <div class="thumbnail-video-wrapper" data-video-src="videos/shaving-1.mp4">
+                                        <video class="thumbnail-video" src="videos/shaving-1.mp4" muted preload="metadata" playsinline></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="lead-video-player-wrapper">
+                                    <video id="shaving-lead-video" src="videos/shaving-2.mp4" controls preload="auto"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <h3 class="title is-4"><span class="dvima">Feeding</span></h3>
+                        <div class="columns is-vcentered">
+                            <div class="column is-narrow">
+                                <div class="video-thumbnail-strip" id="feeding-thumbs">
+                                    <div class="thumbnail-video-wrapper" data-video-src="videos/feeding-1.mp4">
+                                        <video class="thumbnail-video" src="videos/feeding-1.mp4" muted preload="metadata" playsinline></video>
+                                    </div>
+                                    <div class="thumbnail-video-wrapper" data-video-src="videos/feeding-2.mp4">
+                                        <video class="thumbnail-video" src="videos/feeding-2.mp4" muted preload="metadata" playsinline></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="lead-video-player-wrapper">
+                                    <video id="feeding-lead-video" src="videos/feeding-1.mp4" controls preload="auto"></video>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -155,25 +258,52 @@
 
   timeoutIds = [];
 
-  function typeWriter(txt, i, q, num, text1, text2) {
-      var imgText = document.getElementById(text1 + num);
-      var answer = document.getElementById(text2 + num);
-      if (imgText.innerHTML == q) {
-          for (let k = 0; k < 5; k++) {
-              if (i < txt.length) {
-                  if (txt.charAt(i) == "\\") {
-                      answer.innerHTML += "\n";
-                      i += 1;
-                  } else {
-                      answer.innerHTML += txt.charAt(i);
-                  }
-                  i++;
-              }
-          }
-          hljs.highlightAll();
-          timeoutIds.push(setTimeout(typeWriter, 1, txt, i, q, num, text1, text2));
-      }
-  }
+    function typeWriter(txt, i, q, num, text1, text2) {
+        var imgText = document.getElementById(text1 + num);
+        var answer = document.getElementById(text2 + num);
+        if (imgText.innerHTML == q) {
+            for (let k = 0; k < 5; k++) {
+                if (i < txt.length) {
+                    if (txt.charAt(i) == "\\") {
+                        answer.innerHTML += "\n";
+                        i += 1;
+                    } else {
+                        answer.innerHTML += txt.charAt(i);
+                    }
+                    i++;
+                }
+            }
+            hljs.highlightAll();
+            timeoutIds.push(setTimeout(typeWriter, 1, txt, i, q, num, text1, text2));
+        }
+    }
+
+    function setupVideoGallery(galleryId, leadVideoId) {
+        const gallery = document.getElementById(galleryId);
+        if (!gallery) { /* console.warn("Gallery not found:", galleryId); */ return; }
+        const leadVideo = document.getElementById(leadVideoId);
+        if (!leadVideo) { /* console.warn("Lead video not found:", leadVideoId); */ return; }
+        
+        const thumbnailWrappers = gallery.querySelectorAll('.thumbnail-video-wrapper'); 
+        if (thumbnailWrappers.length === 0) { /* console.warn("No thumbnails in gallery:", galleryId); */ return; }
+
+        if (thumbnailWrappers[0] && thumbnailWrappers[0].dataset.videoSrc) {
+            leadVideo.src = thumbnailWrappers[0].dataset.videoSrc;
+            thumbnailWrappers[0].classList.add('active');
+        }
+
+        thumbnailWrappers.forEach(wrapper => {
+            wrapper.addEventListener('click', function() {
+                leadVideo.src = this.dataset.videoSrc;
+                thumbnailWrappers.forEach(thumbWrap => thumbWrap.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    }
+
+    setupVideoGallery('bathing-thumbs', 'bathing-lead-video');
+    setupVideoGallery('shaving-thumbs', 'shaving-lead-video');
+    setupVideoGallery('feeding-thumbs', 'feeding-lead-video');
 
 </script>
 

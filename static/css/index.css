@@ -204,8 +204,3 @@ body {
     max-height: 800px; /* You can adjust this value as per your design */
     overflow-y: auto;
 }
-
-.features {
-    list-style-type: disc;  /* solid round bullets */
-    margin-left: 1.5em;     /* indent to taste */
-}
